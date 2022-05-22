@@ -1,0 +1,226 @@
+{
+	"root":
+		{
+			"classId": 0,
+			"ScenarioName": "Simple Scenario",
+			"Description": "Character crashes his car.",
+			"Dialogues": [
+				{
+					"CurrentState": "Start",
+					"NextState": "Crash",
+					"Meaning": "-",
+					"Style": "Happy",
+					"Utterance": "See, I'm driving my new car",
+					"UtteranceId": "TTS-4A8374420A2A58AC9D4083E99C46A5AB"
+				}, 
+				{
+					"CurrentState": "Crash",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Sad",
+					"Utterance": "Be careful!!",
+					"UtteranceId": "TTS-D1463616C7DABD6727F1481D1E901CA0"
+				}],
+			"Characters": [
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Carlos",
+							"Knowledge":
+								{
+									"SELF":
+										{
+											"Love(HisCar)": "True, 1",
+											"Driving(Car)": "False, 1",
+											"Has(Car)": "1, 1",
+											"Is(Car)": "True, 1",
+											"Am(Carlos)": "True, 1"
+										}
+								}
+						},
+					"BodyName": null,
+					"VoiceName": null,
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": [
+						{
+							"Name": "MaintainHisCar",
+							"Significance": 0.7,
+							"Likelihood": 0.5
+						}]
+				}, 
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Sarah",
+							"Knowledge":
+								{
+									"SELF":
+										{
+											"Said(Carlos)": "False, 1",
+											"Am(Sarah)": "True, 1"
+										}
+								}
+						},
+					"BodyName": null,
+					"VoiceName": null,
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": []
+				}],
+			"WorldModel":
+				{
+					"Effects":
+						{
+							"dictionary": [
+								{
+									"key": "Event(Action-End, Carlos, Speak(*, [ns], *, Happy), [s])",
+									"value": [
+										{
+											"PropertyName": "Said(Carlos)",
+											"NewValue": true,
+											"ObserverAgent": "[s]"
+										}]
+								}, 
+								{
+									"key": "Event(Action-End, Sarah, Speak(*, [ns], *, Sad), [s])",
+									"value": [
+										{
+											"PropertyName": "Said(Carlos)",
+											"NewValue": true,
+											"ObserverAgent": "[s]"
+										}]
+								}]
+						},
+					"Priorities":
+						{
+							"dictionary": [
+								{
+									"key": "Event(Action-End, [a], Driving(Car), [ob])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], Driving(Car), [t])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], Crash, [t])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], Drive, [t])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], Drive, [object])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], Drive, Car)",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], DuplicateSpeak(*, [ns], *, *), [objCar])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Drive2, [objCar])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [t])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Sad), [t])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [objCar])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Sad), [objCar])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [s])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(Start, [ns], *, *), [s])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], DuplicateSpeak(*, [ns], *, *), [s])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Happy), [s])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, Carlos, Speak(*, [ns], *, Sad), [s])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, Sarah, Speak(*, [ns], *, Sad), [s])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, Carlos, Speak(*, [ns], *, Happy), [s])",
+									"value": 5
+								}]
+						}
+				}
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "IntegratedAuthoringTool.IntegratedAuthoringToolAsset, IntegratedAuthoringTool, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}

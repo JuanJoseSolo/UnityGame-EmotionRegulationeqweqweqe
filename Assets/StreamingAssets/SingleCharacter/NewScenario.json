@@ -1,0 +1,156 @@
+{
+	"root":
+		{
+			"classId": 0,
+			"ScenarioName": null,
+			"Description": "Pedro es un oficinista que trabaja para una empresa desde hace ya algunos años. Durante su trabajo, Pedro experimenta diferentes emociones a causa de los eventos que suceden a su alrededor. Un día normal para Pedro inicial al llegar a su trabajo.",
+			"Dialogues": [
+				{
+					"CurrentState": "Start",
+					"NextState": "AnsGreeting",
+					"Meaning": "-",
+					"Style": "PedroGreet",
+					"Utterance": "Hola, compañero1. Buen día. ¿cómo va todo?",
+					"UtteranceId": "TTS-9EEAB624E32AF2A7256DB93E8D2F2DD9"
+				}, 
+				{
+					"CurrentState": "AnsGreeting",
+					"NextState": "GoodBye",
+					"Meaning": "-",
+					"Style": "PlayerUnhappyGreeting",
+					"Utterance": "Pues bien, bueno adiós. ",
+					"UtteranceId": "TTS-017D9CD42A25D06709681F3CDF3AFE64"
+				}, 
+				{
+					"CurrentState": "GoodBye",
+					"NextState": "BadNews",
+					"Meaning": "-",
+					"Style": "PedroHappyBay",
+					"Utterance": "Bien también. Gracias por preguntar. Bueno, nos vemos pronto. ",
+					"UtteranceId": "TTS-C3032ABDFEA8766570F7A2EA10EAE16A"
+				}, 
+				{
+					"CurrentState": "GoodBye",
+					"NextState": "BadNews",
+					"Meaning": "-",
+					"Style": "PedroUnhappyBay",
+					"Utterance": "Bueno, pues adiós.",
+					"UtteranceId": "TTS-CD108062D1702C5E20C46325B517E1D2"
+				}, 
+				{
+					"CurrentState": "AnsGreeting",
+					"NextState": "GoodBye",
+					"Meaning": "-",
+					"Style": "PlayerHappyGreeting",
+					"Utterance": "Hola, Pedro. Buen día. Yo estoy muy bien, ¿y tú?",
+					"UtteranceId": "TTS-9233E7A40B2862E7C41897D08758DB2D"
+				}, 
+				{
+					"CurrentState": "BadNews",
+					"NextState": "LastResponse",
+					"Meaning": "-",
+					"Style": "PedroNoWorriedAns",
+					"Utterance": "Como sea, no me interesa lo que el jefe piense de mi",
+					"UtteranceId": "TTS-B1C61755CF93E239EE74D3999ED1AD79"
+				}, 
+				{
+					"CurrentState": "BadNews",
+					"NextState": "LastResponse",
+					"Meaning": "-",
+					"Style": "PedroWorriedAns",
+					"Utterance": "¿En verdad?, ¿Pero por qué? Yo no he hecho nada malo como para ser llamado por el jefe.",
+					"UtteranceId": "TTS-C0F3AE2A62586D45038A5AF85C65D02D"
+				}],
+			"Characters": [
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Player",
+							"Knowledge":
+								{
+
+								}
+						},
+					"BodyName": null,
+					"VoiceName": null,
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": []
+				}, 
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Agent",
+							"Knowledge":
+								{
+
+								}
+						},
+					"BodyName": null,
+					"VoiceName": null,
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": []
+				}],
+			"WorldModel":
+				{
+					"Effects":
+						{
+							"dictionary": []
+						},
+					"Priorities":
+						{
+							"dictionary": []
+						}
+				}
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "IntegratedAuthoringTool.IntegratedAuthoringToolAsset, IntegratedAuthoringTool, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}

@@ -1,0 +1,298 @@
+[
+"EmotionalAppraisalAsset", 
+{
+	"root":
+		{
+			"classId": 0,
+			"Description": null,
+			"AppraisalRules":
+				{
+					"AppraisalWeight": 1,
+					"Rules": [
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, *, BadStart), SELF)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": []
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, *, EndGlad), SELF)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": 5,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, *, HappyGreet), SELF)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": -3,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, SELF, Speak(*, *, *, GoToNeutral), Player)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": 2,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, *, Speak(*, *, *, EndUpset), SELF)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": -6,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, SELF, RunAway, *)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Praiseworthiness",
+											"Value": -9,
+											"Target": "SELF"
+										}, 
+										{
+											"Name": "Like",
+											"Value": -4,
+											"Target": "-"
+										}, 
+										{
+											"Name": "Desirability",
+											"Value": 4,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, SELF, PlayingCards, *)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": 4,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, SELF, Speak(*, *, *, GoToSad), Player)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": -7,
+											"Target": "-"
+										}]
+								}
+						}, 
+						{
+							"EventName": "Event(Action-End, SELF, Travel, *)",
+							"Conditions":
+								{
+									"Set": []
+								},
+							"AppraisalVariables":
+								{
+									"AppraisalVariables": [
+										{
+											"Name": "Desirability",
+											"Value": 5,
+											"Target": "-"
+										}]
+								}
+						}]
+				}
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "EmotionalAppraisal.EmotionalAppraisalAsset, EmotionalAppraisal, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null"
+		}]
+},
+"EmotionalDecisionMakingAsset", 
+{
+	"root":
+		{
+			"classId": 0,
+			"ActionTendencies": [
+				{
+					"Action": "Speak([cs], [ns], [mean], EndGlad)",
+					"Target": "[t]",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["DialogueState([t]) = [cs]", "ValidDialogue([cs], [ns], [mean], EndGlad) = True", "Has(Floor) = SELF"]
+						},
+					"Priority": 5
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [mean], EndUpset)",
+					"Target": "[t]",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["DialogueState([t]) = [cs]", "ValidDialogue([cs], [ns], [mean], EndUpset) = True", "Has(Floor) = SELF"]
+						},
+					"Priority": 5
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [mean], GoToNeutral)",
+					"Target": "[t]",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["DialogueState([t]) = [cs]", "ValidDialogue([cs], [ns], [mean], GoToNeutral) = True", "Has(Floor) = SELF"]
+						},
+					"Priority": 5
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [mean], GoToSad)",
+					"Target": "[t]",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["DialogueState([t]) = [cs]", "ValidDialogue([cs], [ns], [mean], GoToSad) = True", "Has(Floor) = SELF"]
+						},
+					"Priority": 6
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [mean], HappyGreet)",
+					"Target": "[t]",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["DialogueState([t]) = [cs]", "ValidDialogue([cs], [ns], [mean], HappyGreet) = True", "Has(Floor) = SELF"]
+						},
+					"Priority": 5
+				}, 
+				{
+					"Action": "Speak([cs], [ns], [mean], BadStart)",
+					"Target": "[t]",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["DialogueState([t]) = [cs]", "ValidDialogue([cs], [ns], [mean], BadStart) = True", "Has(Floor) = SELF"]
+						},
+					"Priority": 5
+				}, 
+				{
+					"Action": "RunAway",
+					"Target": "Player",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["Iam([t]) = Pedro", "DialogueState([x]) = GoTott"]
+						},
+					"Priority": 7
+				}, 
+				{
+					"Action": "PlayingCards",
+					"Target": "Player",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["Iam([t]) != Pedro", "Bel([x]) = True"]
+						},
+					"Priority": 6
+				}, 
+				{
+					"Action": "Travel",
+					"Target": "Player",
+					"Layer": "-",
+					"Conditions":
+						{
+							"Set": ["Iam([t]) != Pedro", "Bel([x]) = True"]
+						},
+					"Priority": 6
+				}]
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "EmotionalDecisionMaking.EmotionalDecisionMakingAsset, EmotionalDecisionMaking, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+},
+"SocialImportanceAsset", 
+{
+	"root":
+		{
+			"classId": 0,
+			"AttributionRules": []
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "SocialImportance.SocialImportanceAsset, SocialImportance, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+},
+"CommeillFautAsset", 
+{
+	"root":
+		{
+			"classId": 0,
+			"SocialExchanges": []
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "CommeillFaut.CommeillFautAsset, CommeillFaut, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}
+]

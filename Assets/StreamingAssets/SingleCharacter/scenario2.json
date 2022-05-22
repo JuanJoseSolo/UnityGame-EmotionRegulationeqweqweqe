@@ -1,0 +1,241 @@
+{
+	"root":
+		{
+			"classId": 0,
+			"ScenarioName": "Example",
+			"Description": "A short conversation between the Player and a Character named Pedro.",
+			"Dialogues": [
+				{
+					"CurrentState": "Greeting",
+					"NextState": "HaveConversation",
+					"Meaning": "-",
+					"Style": "Polite",
+					"Utterance": "Hi, for now everything is right, thank you",
+					"UtteranceId": "TTS-4C1179BD006430D5922B48D4134E3855"
+				}, 
+				{
+					"CurrentState": "Scream",
+					"NextState": "Whaaaa",
+					"Meaning": "-",
+					"Style": "Furious",
+					"Utterance": "Ahhhhh!!!",
+					"UtteranceId": "TTS-F6B238CEAFBF9031E5FB5D41AB020112"
+				}, 
+				{
+					"CurrentState": "Start",
+					"NextState": "Crash",
+					"Meaning": "-",
+					"Style": "Happy",
+					"Utterance": "See, I am driving my car!!",
+					"UtteranceId": "TTS-22E4F487E215F1B811D655F36730FCCD"
+				}, 
+				{
+					"CurrentState": "Leave",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "Bye",
+					"Utterance": "Noooo!!!",
+					"UtteranceId": "TTS-7E6405CA8CDE0820B859D18D2BF2666E"
+				}, 
+				{
+					"CurrentState": "HaveConversation",
+					"NextState": "SayGoodBye",
+					"Meaning": "-",
+					"Style": "ByePolite",
+					"Utterance": "Ok, see you around",
+					"UtteranceId": "TTS-8E88763A4A957BE035CF9541C40FB11A"
+				}, 
+				{
+					"CurrentState": "SayGoodBye",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "ByePoliteEnd",
+					"Utterance": "Bye, Bye butterfly",
+					"UtteranceId": "TTS-2E88D6A2D0A87A04071EB2DC7D3FFAAC"
+				}, 
+				{
+					"CurrentState": "Crash",
+					"NextState": "Leave",
+					"Meaning": "-",
+					"Style": "Sad",
+					"Utterance": "Be careful!!",
+					"UtteranceId": "TTS-D1463616C7DABD6727F1481D1E901CA0"
+				}],
+			"Characters": [
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Pedro",
+							"Knowledge":
+								{
+									"SELF":
+										{
+											"Has(Floor)": "Pedro, 1",
+											"DialogueState(Player)": "Start, 1",
+											"Crash(Car)": "False, 1"
+										}
+								}
+						},
+					"BodyName": "Male",
+					"VoiceName": "Voice1",
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": [
+						{
+							"Name": "Survive",
+							"Significance": 5,
+							"Likelihood": 0.5
+						}]
+				}, 
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Player",
+							"Knowledge":
+								{
+									"SELF":
+										{
+											"Has(Floor)": "Pedro, 1",
+											"DialogueState(Pedro)": "Start, 1"
+										}
+								}
+						},
+					"BodyName": "",
+					"VoiceName": "Voice1",
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": [
+						{
+							"Name": "Survive",
+							"Significance": 5,
+							"Likelihood": 0.2
+						}]
+				}],
+			"WorldModel":
+				{
+					"Effects":
+						{
+							"dictionary": [
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [t])",
+									"value": [
+										{
+											"PropertyName": "DialogueState([s])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[t]"
+										}, 
+										{
+											"PropertyName": "Has(Floor)",
+											"NewValue": "[t]",
+											"ObserverAgent": "*"
+										}, 
+										{
+											"PropertyName": "DialogueState([t])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[s]"
+										}]
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Sad), [t])",
+									"value": [
+										{
+											"PropertyName": "DialogueState([s])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[t]"
+										}, 
+										{
+											"PropertyName": "Has(Floor)",
+											"NewValue": "[t]",
+											"ObserverAgent": "*"
+										}, 
+										{
+											"PropertyName": "DialogueState([t])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[s]"
+										}]
+								}]
+						},
+					"Priorities":
+						{
+							"dictionary": [
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [t])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [subject], Offer(Money), Player)",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, *, Offer, [target])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, Charlie, Offer, Player)",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [subject], Offer, [target])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], DuplicateSpeak(*, [ns], *, *), [t])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Sad), [t])",
+									"value": 5
+								}]
+						}
+				}
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "IntegratedAuthoringTool.IntegratedAuthoringToolAsset, IntegratedAuthoringTool, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}

@@ -1,0 +1,242 @@
+{
+	"root":
+		{
+			"classId": 0,
+			"ScenarioName": "Example",
+			"Description": "A short conversation between the Player and a Character named Pedro.",
+			"Dialogues": [
+				{
+					"CurrentState": "GoTo",
+					"NextState": "HaveConversation",
+					"Meaning": "-",
+					"Style": "GoToSad",
+					"Utterance": "Yeah, Yeah. Whatever you want...",
+					"UtteranceId": "TTS-7744DE99C452C045B8A34924905B1DD4"
+				}, 
+				{
+					"CurrentState": "GoAway",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "EndGlad",
+					"Utterance": "Bye, bro",
+					"UtteranceId": "TTS-D12B434E7DF102FE199CF6F2581D9629"
+				}, 
+				{
+					"CurrentState": "Greet",
+					"NextState": "GoTo",
+					"Meaning": "-",
+					"Style": "HappyGreet",
+					"Utterance": "Hey ! Pedro, come here with us !!!!",
+					"UtteranceId": "TTS-BDD8496C2D4D24CEA0487E1824B94251"
+				}, 
+				{
+					"CurrentState": "Start",
+					"NextState": "Greet",
+					"Meaning": "-",
+					"Style": "BadStart",
+					"Utterance": "Good afternoon guys.",
+					"UtteranceId": "TTS-5632DAD3404BB4A7E714FB594E588212"
+				}, 
+				{
+					"CurrentState": "HaveConversation",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "EndUpset",
+					"Utterance": "Deam",
+					"UtteranceId": "TTS-D8950D7AE55FE37DD578F804C9465A29"
+				}, 
+				{
+					"CurrentState": "GoTo",
+					"NextState": "GoAway",
+					"Meaning": "-",
+					"Style": "GoToNeutral",
+					"Utterance": "I dont care, dude.",
+					"UtteranceId": "TTS-54F3D605003001C69B76149F925888A6"
+				}, 
+				{
+					"CurrentState": "End",
+					"NextState": "End",
+					"Meaning": "-",
+					"Style": "LastEmotions",
+					"Utterance": "Finish",
+					"UtteranceId": "TTS-3248BC7547CE97B2A197B2A06CF7283D"
+				}],
+			"Characters": [
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Pedro",
+							"Knowledge":
+								{
+									"SELF":
+										{
+											"Has(Floor)": "Pedro, 1",
+											"DialogueState(Player)": "Start, 1",
+											"Iam(Pedro)": "Pedro, 1"
+										}
+								}
+						},
+					"BodyName": "Male",
+					"VoiceName": "Voice1",
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": [
+						{
+							"Name": "Survive",
+							"Significance": 5,
+							"Likelihood": 0.5
+						}]
+				}, 
+				{
+					"KnowledgeBase":
+						{
+							"Perspective": "Player",
+							"Knowledge":
+								{
+									"SELF":
+										{
+											"Has(Floor)": "Pedro, 1",
+											"DialogueState(Pedro)": "Start, 1",
+											"Iam(Player)": "Player, 1"
+										}
+								}
+						},
+					"BodyName": "",
+					"VoiceName": "Voice1",
+					"EmotionalState":
+						{
+							"Mood": 0,
+							"initialTick": 0,
+							"EmotionalPool": [],
+							"AppraisalConfiguration":
+								{
+									"HalfLifeDecayConstant": 0.5,
+									"EmotionInfluenceOnMoodFactor": 0.3,
+									"MoodInfluenceOnEmotionFactor": 0.3,
+									"MinimumMoodValueForInfluencingEmotions": 0.5,
+									"EmotionalHalfLifeDecayTime": 15,
+									"MoodHalfLifeDecayTime": 60
+								}
+						},
+					"AutobiographicMemory":
+						{
+							"Tick": 0,
+							"records": []
+						},
+					"OtherAgents":
+						{
+							"dictionary": []
+						},
+					"Goals": [
+						{
+							"Name": "Survive",
+							"Significance": 5,
+							"Likelihood": 0.2
+						}]
+				}],
+			"WorldModel":
+				{
+					"Effects":
+						{
+							"dictionary": [
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [t])",
+									"value": [
+										{
+											"PropertyName": "DialogueState([s])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[t]"
+										}, 
+										{
+											"PropertyName": "Has(Floor)",
+											"NewValue": "[t]",
+											"ObserverAgent": "*"
+										}, 
+										{
+											"PropertyName": "DialogueState([t])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[s]"
+										}]
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Sad), [t])",
+									"value": [
+										{
+											"PropertyName": "DialogueState([s])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[t]"
+										}, 
+										{
+											"PropertyName": "Has(Floor)",
+											"NewValue": "[t]",
+											"ObserverAgent": "*"
+										}, 
+										{
+											"PropertyName": "DialogueState([t])",
+											"NewValue": "[ns]",
+											"ObserverAgent": "[s]"
+										}]
+								}]
+						},
+					"Priorities":
+						{
+							"dictionary": [
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, *), [t])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [subject], Offer(Money), Player)",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, *, Offer, [target])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, Charlie, Offer, Player)",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [subject], Offer, [target])",
+									"value": 1
+								}, 
+								{
+									"key": "Event(Action-End, [s], DuplicateSpeak(*, [ns], *, *), [t])",
+									"value": 5
+								}, 
+								{
+									"key": "Event(Action-End, [s], Speak(*, [ns], *, Sad), [t])",
+									"value": 5
+								}]
+						}
+				}
+		},
+	"types": [
+		{
+			"TypeId": 0,
+			"ClassName": "IntegratedAuthoringTool.IntegratedAuthoringToolAsset, IntegratedAuthoringTool, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"
+		}]
+}
